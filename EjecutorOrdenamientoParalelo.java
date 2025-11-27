@@ -1,13 +1,7 @@
 public class EjecutorOrdenamientoParalelo {
     
-    private final int numeroHilos;
-    
-    public EjecutorOrdenamientoParalelo(int numeroHilos) {
-        this.numeroHilos = numeroHilos;
-    }
-    
+    // Clase simplificada: no se necesita manejar un pool complejo
     public EjecutorOrdenamientoParalelo() {
-        this(Runtime.getRuntime().availableProcessors());
     }
     
     public ResultadoOrdenamiento ejecutarAlgoritmo(int[] datos, TareaOrdenamiento.TipoAlgoritmo algoritmo) 

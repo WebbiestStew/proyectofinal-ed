@@ -1,7 +1,7 @@
 public class AlgoritmosOrdenamiento {
 
     public static int[] bubbleSort(int[] arreglo) {
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = 0; i < n - 1; i++) {
@@ -18,7 +18,7 @@ public class AlgoritmosOrdenamiento {
     }
 
     public static int[] insertionSort(int[] arreglo) {
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = 1; i < n; i++) {
@@ -37,7 +37,7 @@ public class AlgoritmosOrdenamiento {
     }
 
     public static int[] selectionSort(int[] arreglo) {
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = 0; i < n - 1; i++) {
@@ -59,10 +59,10 @@ public class AlgoritmosOrdenamiento {
 
     public static int[] mergeSort(int[] arreglo) {
         if (arreglo.length <= 1) {
-            return arreglo.clone();
+            return clonarArreglo(arreglo);
         }
         
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         mergeSortRecursivo(resultado, 0, resultado.length - 1);
         return resultado;
     }
@@ -120,10 +120,10 @@ public class AlgoritmosOrdenamiento {
 
     public static int[] quickSort(int[] arreglo) {
         if (arreglo.length <= 1) {
-            return arreglo.clone();
+            return clonarArreglo(arreglo);
         }
         
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         quickSortRecursivo(resultado, 0, resultado.length - 1);
         return resultado;
     }
@@ -158,7 +158,7 @@ public class AlgoritmosOrdenamiento {
     }
 
     public static int[] heapSort(int[] arreglo) {
-        int[] resultado = arreglo.clone();
+        int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -196,5 +196,14 @@ public class AlgoritmosOrdenamiento {
             
             heapify(arr, n, mayor);
         }
+    }
+
+    // Método simple para clonar arreglos (explicita para principiantes)
+    private static int[] clonarArreglo(int[] original) {
+        int[] copia = new int[original.length];
+        for (int i = 0; i < original.length; i++) {
+            copia[i] = original[i];
+        }
+        return copia;
     }
 }

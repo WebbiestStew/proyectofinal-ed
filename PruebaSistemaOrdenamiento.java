@@ -5,7 +5,8 @@ public class PruebaSistemaOrdenamiento {
         System.out.println("║        SISTEMA DE ORDENAMIENTO PARALELO - INTEGRANTE B     ║");
         System.out.println("╚════════════════════════════════════════════════════════════╝\n");
         
-        int[] datosOriginales = generarDatosAleatorios(10000);
+        // Para empezar, usar un tamaño razonable para pruebas rápidas
+        int[] datosOriginales = generarDatosAleatorios(1000);
         
         System.out.println("Datos generados: " + datosOriginales.length + " elementos\n");
         System.out.println("Primeros 20 elementos:");
@@ -25,8 +26,8 @@ public class PruebaSistemaOrdenamiento {
             System.out.println("\nRESULTADOS DE EJECUCIÓN:");
             System.out.println("─".repeat(60));
             
-            for (int i = 0; i < resultados.length; i++) {
-                EjecutorOrdenamientoParalelo.ResultadoOrdenamiento resultado = resultados[i];
+            // Mostrar resultados (usar enhanced for para simplicidad)
+            for (EjecutorOrdenamientoParalelo.ResultadoOrdenamiento resultado : resultados) {
                 System.out.println(formatearResultado(
                     resultado.getAlgoritmo().toString(), 
                     resultado.getTiempoMillis(),
@@ -70,10 +71,8 @@ public class PruebaSistemaOrdenamiento {
             
         } catch (InterruptedException e) {
             System.err.println("Error durante la ejecución: " + e.getMessage());
-            e.printStackTrace();
         } catch (Exception e) {
             System.err.println("Error durante la ejecución: " + e.getMessage());
-            e.printStackTrace();
         }
         
         System.out.println("\n\n╔════════════════════════════════════════════════════════════╗");
