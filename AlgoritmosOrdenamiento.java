@@ -198,7 +198,7 @@ public class AlgoritmosOrdenamiento {
         }
     }
 
-    // Método simple para clonar arreglos (explicita para principiantes)
+    
     private static int[] clonarArreglo(int[] original) {
         int[] copia = new int[original.length];
         for (int i = 0; i < original.length; i++) {
