@@ -1,11 +1,12 @@
+// Hilo que ejecuta un algoritmo continuamente durante el tiempo límite
 public class HiloOrdenamiento extends Thread {
     
-    private final TareaOrdenamiento.TipoAlgoritmo algoritmo;
+    private final TareaOrdenamiento.TipoAlgoritmo algoritmo; // qué algoritmo usar
     private final GeneradorColecciones generador;
-    private final EstadisticasAlgoritmo estadisticas;
+    private final EstadisticasAlgoritmo estadisticas; // guarda los resultados
     private final long tiempoLimiteMillis;
-    private final int[] tiposColecciones;
-    private volatile boolean debeDetenerse;
+    private final int[] tiposColecciones; // los 4 tipos de colecciones
+    private volatile boolean debeDetenerse; // para parar el hilo
     
     public HiloOrdenamiento(TareaOrdenamiento.TipoAlgoritmo algoritmo, 
                            long tiempoLimiteMillis,
@@ -23,17 +24,21 @@ public class HiloOrdenamiento extends Thread {
         long tiempoInicio = System.currentTimeMillis();
         int indiceColeccion = 0;
         
+        // sigue ordenando hasta que se acabe el tiempo
         while (!debeDetenerse) {
             long tiempoActual = System.currentTimeMillis();
             long tiempoTranscurrido = tiempoActual - tiempoInicio;
             
+            // verifica si ya pasó el tiempo
             if (tiempoTranscurrido >= tiempoLimiteMillis) {
                 break;
             }
             
+            // genera una colección y la ordena
             int tipoColeccion = tiposColecciones[indiceColeccion];
             int[] datos = generador.generarPorTipo(tipoColeccion);
             
+            // mide cuánto tarda en ordenar
             long inicio = System.currentTimeMillis();
             ordenar(datos);
             long fin = System.currentTimeMillis();

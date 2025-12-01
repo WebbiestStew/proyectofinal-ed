@@ -1,9 +1,10 @@
+// Genera las colecciones de datos para probar los algoritmos
 public class GeneradorColecciones {
     
-    private long semilla;
+    private long semilla; // para generar números aleatorios
     
     public GeneradorColecciones() {
-        this.semilla = System.nanoTime();
+        this.semilla = System.nanoTime(); // usa el tiempo como semilla
     }
     
     public int[] generar100Elementos() {

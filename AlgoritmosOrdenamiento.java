@@ -1,11 +1,15 @@
+// Clase con los 6 algoritmos de ordenamiento
 public class AlgoritmosOrdenamiento {
 
+    // Bubble Sort - va comparando de 2 en 2 y los intercambia si están mal
     public static int[] bubbleSort(int[] arreglo) {
         int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
+        // recorre todo el arreglo
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
+                // si el de la izquierda es mayor, los cambia
                 if (resultado[j] > resultado[j + 1]) {
                     int temp = resultado[j];
                     resultado[j] = resultado[j + 1];
@@ -17,32 +21,36 @@ public class AlgoritmosOrdenamiento {
         return resultado;
     }
 
+    // Insertion Sort - inserta cada elemento en su lugar correcto
     public static int[] insertionSort(int[] arreglo) {
         int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = 1; i < n; i++) {
-            int clave = resultado[i];
+            int clave = resultado[i]; // guarda el elemento actual
             int j = i - 1;
             
+            // mueve los elementos mayores hacia la derecha
             while (j >= 0 && resultado[j] > clave) {
                 resultado[j + 1] = resultado[j];
                 j--;
             }
             
-            resultado[j + 1] = clave;
+            resultado[j + 1] = clave; // coloca el elemento en su lugar
         }
         
         return resultado;
     }
 
+    // Selection Sort - busca el más pequeño y lo pone al inicio
     public static int[] selectionSort(int[] arreglo) {
         int[] resultado = clonarArreglo(arreglo);
         int n = resultado.length;
         
         for (int i = 0; i < n - 1; i++) {
-            int indiceMinimo = i;
+            int indiceMinimo = i; // asume que el actual es el menor
             
+            // busca el elemento más pequeño
             for (int j = i + 1; j < n; j++) {
                 if (resultado[j] < resultado[indiceMinimo]) {
                     indiceMinimo = j;

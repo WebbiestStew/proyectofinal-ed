@@ -1,9 +1,10 @@
+// Guarda las estadísticas de cada algoritmo
 public class EstadisticasAlgoritmo {
     
     private final String nombre;
-    private int coleccionesOrdenadas;
-    private long tiempoTotalMillis;
-    private boolean completoTodas;
+    private int coleccionesOrdenadas; // cuántas colecciones ordenó
+    private long tiempoTotalMillis; // tiempo total que tardó
+    private boolean completoTodas; // si terminó los 4 tipos
     
     public EstadisticasAlgoritmo(String nombre) {
         this.nombre = nombre;

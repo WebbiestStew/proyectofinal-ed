@@ -1,6 +1,8 @@
+// Programa principal que ejecuta todo el sistema
 public class SistemaOrdenamientoConcurrente {
     
     public static void main(String[] args) {
+        // muestra el título del programa
         System.out.println("╔════════════════════════════════════════════════════════════╗");
         System.out.println("║     SISTEMA DE ORDENAMIENTO CONCURRENTE - PROYECTO FINAL   ║");
         System.out.println("╚════════════════════════════════════════════════════════════╝\n");
